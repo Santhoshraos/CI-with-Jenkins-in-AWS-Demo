@@ -5,30 +5,33 @@ metadata:
 spec:
   replicas: 2
   selector:
-   matchLabels:
-    app: webapp1
-template:
-  metadata:
-    labels:
+    matchLabels:
       app: webapp1
-  spec:
-    containers:
-    - name: webapp1
-      image: raosanthos/kube8s:tagversion
+  template:
+    metadata:
+      labels:
+      app: webapp1
+    spec:
+      containers:
+        -
+          name: webapp1
+          image: raosanthos/kube8s:tagversion
       ports:
-      - containerPort: 8080
----
+        - 
+          containerPort: 8080
+--- 
 apiVersion: v1
 kind: Service
-metadata:
+metadata: 
+  labels: 
+    app: webapp1
   name: webapp1-svc
-  labels:
+spec: 
+  ports: 
+    - 
+      port: 80
+      protocol: TCP
+      targetPort: 8080
+  selector: 
     app: webapp1
-spec:
   type: LoadBalancer
-  selector:
-    app: webapp1
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 8080
