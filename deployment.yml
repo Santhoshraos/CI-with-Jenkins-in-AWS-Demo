@@ -26,9 +26,9 @@ metadata:
     app: webapp1
 spec:
   type: LoadBalancer
+  selector:
+    app: webapp1
   ports:
   - protocol: TCP
     port: 80
     targetPort: 8080
-  selector:
-    app: webapp1
