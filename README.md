@@ -1,2 +1,2 @@
 # CI-with-Jenkins-in-GCP-Demo
-Testing CI v1.4
+Testing CI v1.6
